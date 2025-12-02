@@ -5,6 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -17,38 +18,20 @@ public class App extends Application {
         launch(args);
     }
     
+    
+
     @Override
     public void start(Stage stage) {
-        // Create components to add.
-        VBox contentBox = new VBox();
-        contentBox.setAlignment(Pos.CENTER);
-
-        Label promptLabel = new Label();
-        promptLabel.setText("Enter your thoughts");
-
-        TextField thoughtsBox = new TextField();
-        thoughtsBox.setMaxWidth(150);
-        thoughtsBox.setPromptText("type here");
+        BorderPane groot = new BorderPane();
+        VBox horizontal = new VBox();
+        int [] Button = new int[10];
+        Button redBtn = new Button();
+        redBtn.setStyle("-fx-border-color: red; -fx-vgap: 20");
         
-        TextArea messageBox = new TextArea();
-        messageBox.setEditable(false);
 
-        Button submissionBtn = new Button();
-        submissionBtn.setText("Submit");
 
-        // Set up reactions (aka callbacks).
-        submissionBtn.setOnAction(event -> onSubmitThought(thoughtsBox, messageBox));
-
-        // Add components to the content box.
-        contentBox.getChildren().add(promptLabel);
-        contentBox.getChildren().add(thoughtsBox);
-        contentBox.getChildren().add(submissionBtn);
-        contentBox.getChildren().add(messageBox);
-
-        // Set up the window and display it.
-        Scene scene = new Scene(contentBox, 300, 200);
+        Scene scene = new Scene(groot, 500, 250);
         stage.setScene(scene);
-        stage.setTitle("Amazing App 2000");
         stage.show();
     }
 
