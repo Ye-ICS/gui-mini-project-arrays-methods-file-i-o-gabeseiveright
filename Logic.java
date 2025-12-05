@@ -18,8 +18,10 @@ public class Logic {
                 for (int k = 0; k < lightColour.length; k++) {
                     randomNum = Math.random();
                     if (randomNum > 0.5) {
+                        lightColour[i][k] = 1;
                         System.out.print("1  ");
                     } else {
+                        lightColour[i][k] = 0;
                         System.out.print("0  ");
                     }
                 } 
@@ -60,16 +62,16 @@ public class Logic {
         int indexX = guess[0] - 1;
         int indexY = guess[1] - 1;
         lightColour[indexX][indexY] = 1 - lightColour[indexX][indexY];
-        if (indexY < 0) {
+        if (indexY >= 1) {
             lightColour[indexX][indexY - 1] = 1 - lightColour[indexX][indexY - 1];
         }
-        if (indexY > 4) {
+        if (indexY <= lightColour.length - 2) {
             lightColour[indexX][indexY + 1] = 1 - lightColour[indexX][indexY + 1];
         }
-        if (indexX < 0) {
+        if (indexX >= 1) {
             lightColour[indexX - 1][indexY] = 1 - lightColour[indexX - 1][indexY];
         }
-        if (indexX > 4) {
+        if (indexX <= lightColour.length - 2) {
             lightColour[indexX + 1][indexY] = 1 - lightColour[indexX + 1][indexY];
         }
 
