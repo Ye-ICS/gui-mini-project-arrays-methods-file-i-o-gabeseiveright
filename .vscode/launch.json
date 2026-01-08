@@ -9,6 +9,13 @@
             "name": "Logic",
             "request": "launch",
             "mainClass": "Logic",
+            "projectName": "gui-mini-project-arrays-methods-file-i-o-gabeseiveright_d2424dec"
+        },
+        {
+            "type": "java",
+            "name": "Logic",
+            "request": "launch",
+            "mainClass": "Logic",
             "projectName": "gui-mini-project-arrays-methods-file-i-o-gabeseiveright_152c8aa4"
         },
         {
