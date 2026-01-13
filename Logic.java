@@ -7,11 +7,11 @@ public class Logic {
         Scanner sc = new Scanner(System.in);
         String answer;
         boolean win = false;
-        System.out.println("Welcome to lights out, you must turn out all of the lights. Ready to play? (yes/no)");
+        System.out.println("Welcome to lights out, you must turn out all of the lights. Ready to play? (yes/no)"); // intro sentence
         answer = sc.nextLine();
         if (answer.equalsIgnoreCase("yes")) {
             int[][] lightMap = new int[5][5];
-            int[][] lightColour = new int [lightMap.length][lightMap.length];
+            int[][] lightColour = new int [lightMap.length][lightMap.length]; //"map" of 5 by 5 1s and 0s
             
             double randomNum;
             for (int i = 0; i < lightColour.length; i++) {
@@ -24,10 +24,11 @@ public class Logic {
                         lightColour[i][k] = 0;
                         System.out.print("0  ");
                     }
-                } 
-                System.out.println();
+                } //randomly makes each number in double array either a 0 or 1
+
+                System.out.println(); //prints map
             }
-            int[] guess = new int [2];
+            int[] guess = new int [2]; //guess integer 
             
             while (!win) {
                 System.out.println("Enter a light you want to switch using coordinate format (eg. (y x) )");
@@ -36,16 +37,17 @@ public class Logic {
                 onInput(lightColour, guess);
                 checkForWin(lightColour, win);
                 newMap(lightColour, guess);
-            }
+            } //repeatedly asks for coordinates and displays new map until player win
+
             System.out.println("You win! congrats");
-            System.exit(0);
+            System.exit(0); // win statement
 
         } else if (answer.equalsIgnoreCase("no")) {
             System.out.println("Goodbye then");
-            System.exit(0);
+            System.exit(0); //if player says they do not want to play
         } else {
             System.out.println("I do not understand that");
-            System.exit(0);
+            System.exit(0); //if player enters invalid input
         }
 
     }
