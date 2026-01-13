@@ -56,7 +56,7 @@ public class Logic {
         } else {
             win = true;
         }
-    }
+    } // checks to see if all numbers are 0, which would be a win
 
     static void onInput(int [][] lightColour, int[] guess) {
         int indexX = guess[0] - 1;
@@ -75,7 +75,7 @@ public class Logic {
             lightColour[indexX + 1][indexY] = 1 - lightColour[indexX + 1][indexY];
         }
 
-    }
+    } // method that changes value of number entered along with every surrounding one
     
     static void newMap(int[][] lightColour, int[] guess) {
         for (int i = 0; i < lightColour.length; i++) {
@@ -89,6 +89,6 @@ public class Logic {
             } 
             System.out.println();
         }
-    }
-}
+    } //method displaying updated map
+} 
 

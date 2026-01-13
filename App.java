@@ -10,38 +10,39 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.stage.Stage;
 import javafx.geometry.Insets;
+//all imports
 
 public class App extends Application {
-    private Button[][] grid = new Button[5][5];
+    private Button[][] grid = new Button[5][5]; //creates map of buttons
 
     @Override
     public void start(Stage stage) {
-        GridPane pane = new GridPane();
+        GridPane pane = new GridPane(); // map and spaciing for the map
         pane.setHgap(5);
         pane.setVgap(5);
         pane.setPadding(new Insets(10));
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 5; i++) { 
             for (int k = 0; k < 5; k++) {
                 Button btn = new Button();
                 Random random = new Random();
-                Color randomColor = random.nextBoolean() ? Color.WHITE : Color.RED;
+                Color randomColor = random.nextBoolean() ? Color.WHITE : Color.RED; //makes the button red or white to begin, randomly
 
-                btn.setMinSize(60, 60);
-                btn.setBackground(new Background(new BackgroundFill(randomColor, CornerRadii.EMPTY, Insets.EMPTY)));
+                btn.setMinSize(60, 60); //sets button size
+                btn.setBackground(new Background(new BackgroundFill(randomColor, CornerRadii.EMPTY, Insets.EMPTY))); //sets button color
 
                 int row = i;
                 int column = k;
-                btn.setOnAction(e -> userInput(row, column));
+                btn.setOnAction(e -> userInput(row, column)); //when button is clicked, userInput method plays
 
                 grid[i][k] = btn;
-                pane.add(btn, k, i);
+                pane.add(btn, k, i); 
             }
         }
 
         stage.setScene(new Scene(pane));
         stage.setTitle("Lights Out");
-        stage.show();
+        stage.show(); //displays map
     }
 
     private void toggle(int row, int column) {
@@ -50,7 +51,7 @@ public class App extends Application {
             Color color = (Color) btn.getBackground().getFills().get(0).getFill();
             Color newColor = color.equals(Color.RED) ? Color.WHITE : Color.RED;
             btn.setBackground(new Background(new BackgroundFill(newColor, CornerRadii.EMPTY, Insets.EMPTY)));
-        }
+        } //method that changes color of all buttons under toggle method within userInput method
     
     private void userInput(int row, int column) {
         toggle(row, column);
@@ -58,7 +59,7 @@ public class App extends Application {
         toggle(row + 1, column);
         toggle(row, column - 1);
         toggle(row, column + 1);
-    }
+    } //method that runs toggle method on the button pressed and each button around it
 
     public static void main(String[] args) {
         launch(args);
